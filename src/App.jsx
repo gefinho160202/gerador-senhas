@@ -1,42 +1,47 @@
 /* eslint-disable no-unused-vars */
-import { useState } from "react"
-
+import { useState } from "react";
 
 function App() {
-  const [password, setPassword] = useState('')
-  const [copyText, setCopyText] = useState('Copiar')
+  const [password, setPassword] = useState("");
+  const [copyText, setCopyText] = useState("Copiar");
+  const [passwordSize, setPasswordSize] = useState(8);
 
   function generate() {
-    const characters = "'1234567890-=!@#$%¨&*()_+qwertyuiop[asdfghjklç~]zxcvbnm,.;/QWERTYUIOP{ASDFGHJKLÇ^}ZXCVBNM<>:?"
-    const length = 8
-    let newPassword = ''
-    for (let i = 0; i < length; i++) {
-      const position = Math.floor(Math.random() * characters.length)
-      newPassword += characters[position]
-
+    const characters =
+      "'1234567890-=!@#$%¨&*()_+qwertyuiop[asdfghjklç~]zxcvbnm,.;/QWERTYUIOP{ASDFGHJKLÇ^}ZXCVBNM<>:?";
+    let newPassword = "";
+    for (let i = 0; i < passwordSize; i++) {
+      const position = Math.floor(Math.random() * characters.length);
+      newPassword += characters[position];
     }
-    setPassword(newPassword)
-    setCopyText('Copiar')
+    setPassword(newPassword);
+    setCopyText("Copiar");
   }
 
   function copyToClipboard() {
-    window.navigator.clipboard.writeText(password)
-    setCopyText('Copiado')
+    window.navigator.clipboard.writeText(password);
+    setCopyText("Copiado");
   }
 
   return (
     <div>
-
       <h1>Gerador de Senhas</h1>
-      <button onClick={generate}>Gerar</button>
+      <div>
+        <label htmlFor="passwordSize">Tamanho Senha:</label>
+        <input
+          type="number"
+          id="passwordSize"
+          min={1}
+          value={passwordSize}
+          onChange={(ev) => setPasswordSize(ev.target.value)}
+        />
+      </div>
+      <button onClick={generate}>Gerar senha de {passwordSize} </button>
       <button onClick={copyToClipboard}>{copyText}</button>
 
       <div className="password">{password}</div>
-
     </div>
-
-
-  )
+  );
 }
 
-export default App
+export default App;
