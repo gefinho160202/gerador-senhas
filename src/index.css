@@ -37,7 +37,7 @@ h1 {
   color: #1e1f35;
 }
 
-button, input {
+button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -49,6 +49,31 @@ button, input {
   cursor: pointer;
   transition: border-color 0.25s;
   border: none;
+}
+
+.tamanho-senha{
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+input{
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  margin: 2rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  border: none;
+  color: #ffffff;
+  width: 50px;
+}
+
+input[type=number]::-webkit-inner-spin-button { 
+  -webkit-appearance: none;
 }
 
 button:hover {

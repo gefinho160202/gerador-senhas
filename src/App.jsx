@@ -27,7 +27,7 @@ function App() {
     <div>
       <h1>Gerador de Senhas</h1>
       <div>
-        <label htmlFor="passwordSize">Tamanho Senha:</label>
+        <label className="tamanho-senha" htmlFor="passwordSize">Tamanho Senha:</label>
         <input
           type="number"
           id="passwordSize"
