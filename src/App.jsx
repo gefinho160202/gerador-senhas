@@ -1,10 +1,12 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
+import Input from "./components/input";
 
 function App() {
   const [password, setPassword] = useState("");
   const [copyText, setCopyText] = useState("Copiar");
   const [passwordSize, setPasswordSize] = useState(8);
+  
 
   function generate() {
     const characters =
@@ -28,13 +30,8 @@ function App() {
       <h1>Gerador de Senhas</h1>
       <div>
         <label className="tamanho-senha" htmlFor="passwordSize">Tamanho Senha:</label>
-        <input
-          type="number"
-          id="passwordSize"
-          min={1}
-          value={passwordSize}
-          onChange={(ev) => setPasswordSize(ev.target.value)}
-        />
+        <Input passwordSize={passwordSize} setPasswordSize={setPasswordSize}/>
+       
       </div>
       <button onClick={generate}>Gerar senha de {passwordSize} </button>
       <button onClick={copyToClipboard}>{copyText}</button>
